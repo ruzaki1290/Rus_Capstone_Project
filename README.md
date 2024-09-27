@@ -22,7 +22,7 @@ To get started with Dapper Threads, follow these steps:
 
     ```bash
 
-    git clone https://github.com/yourusername/dapper-threads.git
+    git clone https://github.com/ruzaki1290/Rus_Capstone_Project.git
     ```
 
 2. **Navigate to the project directory:**
