@@ -1,6 +1,6 @@
 # Dapper Threads  🎩👔
 
-**Slogan** Your number one choice for custom gentlemen’s suits.  
+***Your number one choice for custom gentlemen’s suits.***  
 
 ## Summary
 
