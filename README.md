@@ -28,7 +28,7 @@ To get started with Dapper Threads, follow these steps:
 2. **Navigate to the project directory:**
 
     ```bash
-    cd dapper-threads
+    cd Rus_Capstone_Project
     ```
 
 3. **Install dependencies:**
