@@ -7,9 +7,9 @@
    try {
       $db = new PDO($dsn, $username, $password);
    }
-   catch (PDOexeption $e)
+   catch (PDOexception $e)
    {
-      $SESSION["databse_error"] = $e->getMessage();
+      $_SESSION["database_error"] = $e->getMessage();
       $url = "database_error.php";
       header("Location: " . $url);
       exit();
