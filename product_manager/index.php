@@ -1,5 +1,10 @@
 <?php
-   require("database.php")
+   require("database.php");
+   $queryContacts = 'SELECT * FROM product1';
+   $statement1 = $db->prepare($queryContacts);
+   $statement1->execute();
+   $product1 = $statement1->fetchAll();
+   $statement1->closeCursor();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,7 +17,16 @@
 <body>
    <?php include("header.php");?>
    <main>
-
+      <h2>Product 1</h2>
+      <h4>Base Price</h4>
+      <table>
+         <tr>
+            <th>Option1</th>
+            <th>Option2</th>
+            <th>Option3</th>
+            <th>Option4</th>
+         </tr>
+      </table>
    </main>
    <?php include("footer.php");?>
 </body>
