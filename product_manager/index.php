@@ -1,9 +1,9 @@
 <?php
    require("database.php");
-   $queryContacts = 'SELECT * FROM product1';
-   $statement1 = $db->prepare($queryContacts);
+   $querySelections = 'SELECT * FROM selections';
+   $statement1 = $db->prepare($querySelections);
    $statement1->execute();
-   $product1 = $statement1->fetchAll();
+   $selections = $statement1->fetchAll();
    $statement1->closeCursor();
 ?>
 <!DOCTYPE html>
@@ -19,14 +19,24 @@
    <main>
       <h2>Product 1</h2>
       <h4>Base Price</h4>
-      <table>
-         <tr>
-            <th>Option1</th>
-            <th>Option2</th>
-            <th>Option3</th>
-            <th>Option4</th>
-         </tr>
-      </table>
+      <form>
+         <lable>Selection 1:</lable>
+         <!-- <input type="text" name="Selection" /><br /> -->
+         <select>
+            <?php
+               include('database.php');
+               $queryOptions = 'SELECT * FROM options';
+               $statement2 = $db->prepare($queryOptions);
+               $statement2->execute();
+               $options = $statement2->fetchAll();
+               $statement2->closeCursor();
+               foreach ($options as $optChoice) {
+                    ?>
+                     <option value="<?php echo $optChoice['optID'] ?>"><?php echo $optChoice['optName'] . ' - $' . $optChoice['price'] ?></option>
+               <?php } ?>
+         </select>
+      </form>
+
    </main>
    <?php include("footer.php");?>
 </body>
