@@ -89,7 +89,7 @@
                      <option value="<?php echo $optChoice['optID'] ?>"><?php echo $optChoice['optName'] . ' - $' . $optChoice['price'] ?></option>
                <?php } ?>
          </select>
-         
+         <input type="submit" value="Calculate Total Price" class="submit-button">
       </form>
 
    </main>

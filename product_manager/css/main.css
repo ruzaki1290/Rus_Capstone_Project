@@ -57,3 +57,19 @@ form {
    flex-direction: column;
    margin-right: 20px;
 }
+
+.submit-button {
+   width: 12em;
+   height: 3em;
+   border: none;
+   background: #4CAF50;
+   display: inline-block;
+   font-size: 16px;
+   color: white;
+   cursor: pointer;
+   border-radius: 4px;
+}
+
+.submit-button:hover {
+   background: #45a049;
+}
