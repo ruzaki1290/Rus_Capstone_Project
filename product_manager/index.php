@@ -35,6 +35,52 @@
                      <option value="<?php echo $optChoice['optID'] ?>"><?php echo $optChoice['optName'] . ' - $' . $optChoice['price'] ?></option>
                <?php } ?>
          </select>
+         <lable>Selection 2:</lable>
+         <!-- <input type="text" name="Selection" /><br /> -->
+         <select>
+            <?php
+               include('database.php');
+               $queryOptions = 'SELECT * FROM options';
+               $statement2 = $db->prepare($queryOptions);
+               $statement2->execute();
+               $options = $statement2->fetchAll();
+               $statement2->closeCursor();
+               foreach ($options as $optChoice) {
+                    ?>
+                     <option value="<?php echo $optChoice['optID'] ?>"><?php echo $optChoice['optName'] . ' - $' . $optChoice['price'] ?></option>
+               <?php } ?>
+         </select>
+         <lable>Selection 3:</lable>
+         <!-- <input type="text" name="Selection" /><br /> -->
+         <select>
+            <?php
+               include('database.php');
+               $queryOptions = 'SELECT * FROM options';
+               $statement2 = $db->prepare($queryOptions);
+               $statement2->execute();
+               $options = $statement2->fetchAll();
+               $statement2->closeCursor();
+               foreach ($options as $optChoice) {
+                    ?>
+                     <option value="<?php echo $optChoice['optID'] ?>"><?php echo $optChoice['optName'] . ' - $' . $optChoice['price'] ?></option>
+               <?php } ?>
+         </select>
+         <lable>Selection 4:</lable>
+         <!-- <input type="text" name="Selection" /><br /> -->
+         <select>
+            <?php
+               include('database.php');
+               $queryOptions = 'SELECT * FROM options';
+               $statement2 = $db->prepare($queryOptions);
+               $statement2->execute();
+               $options = $statement2->fetchAll();
+               $statement2->closeCursor();
+               foreach ($options as $optChoice) {
+                    ?>
+                     <option value="<?php echo $optChoice['optID'] ?>"><?php echo $optChoice['optName'] . ' - $' . $optChoice['price'] ?></option>
+               <?php } ?>
+         </select>
+         
       </form>
 
    </main>
