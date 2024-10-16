@@ -20,6 +20,7 @@
       <h2>Product 1</h2>
       <?php 
          include('database.php');
+         // gets the base price of a selected product from mySQL; 1 - represents Product 1
          $queryBasePrice = 'SELECT basePrice FROM products WHERE productID = 1';
          $statement1 = $db->prepare($queryBasePrice);
          $statement1->execute();
@@ -28,7 +29,8 @@
          $basePrice = $product['basePrice'];
       ?>
       <h4>Base Price: $<?php echo number_format($basePrice, 2); ?></h4>
-      <form>
+      <!-- redirects user with after the submit button is clicked to the page taht calculate the price -->
+      <form action="calculate.php" method="post">
          <lable>Selection 1:</lable>
          <!-- <input type="text" name="Selection" /><br /> -->
          <select>
