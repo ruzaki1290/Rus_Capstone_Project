@@ -18,7 +18,16 @@
    <?php include("header.php");?>
    <main>
       <h2>Product 1</h2>
-      <h4>Base Price</h4>
+      <?php 
+         include('database.php');
+         $queryBasePrice = 'SELECT basePrice FROM products WHERE productID = 1';
+         $statement1 = $db->prepare($queryBasePrice);
+         $statement1->execute();
+         $product = $statement1->fetch();
+         $statement1->closeCursor();
+         $basePrice = $product['basePrice'];
+      ?>
+      <h4>Base Price: $<?php echo number_format($basePrice, 2); ?></h4>
       <form>
          <lable>Selection 1:</lable>
          <!-- <input type="text" name="Selection" /><br /> -->
