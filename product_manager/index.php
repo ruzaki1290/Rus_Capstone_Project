@@ -32,8 +32,8 @@
       <!-- redirects user with after the submit button is clicked to the page taht calculate the price -->
       <form action="calculate.php" method="post">
          <lable>Selection 1:</lable>
+         <select name="selection1">
          <!-- <input type="text" name="Selection" /><br /> -->
-         <select>
             <?php
                include('database.php');
                $queryOptions = 'SELECT * FROM options';
@@ -47,8 +47,8 @@
                <?php } ?>
          </select>
          <lable>Selection 2:</lable>
+         <select name="selection2">
          <!-- <input type="text" name="Selection" /><br /> -->
-         <select>
             <?php
                include('database.php');
                $queryOptions = 'SELECT * FROM options';
@@ -62,8 +62,8 @@
                <?php } ?>
          </select>
          <lable>Selection 3:</lable>
+         <select name="selection3">
          <!-- <input type="text" name="Selection" /><br /> -->
-         <select>
             <?php
                include('database.php');
                $queryOptions = 'SELECT * FROM options';
@@ -77,8 +77,8 @@
                <?php } ?>
          </select>
          <lable>Selection 4:</lable>
+         <select name="selection4">
          <!-- <input type="text" name="Selection" /><br /> -->
-         <select>
             <?php
                include('database.php');
                $queryOptions = 'SELECT * FROM options';
