@@ -39,6 +39,10 @@
    // add the base price to the total price
    $totalPrice += $basePrice;
 
+   // total price after tax
+   $taxRate = 0.13;
+   $totalPriceAfterTax = $totalPrice * (1 + $taxRate);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -52,7 +56,9 @@
    <?php include("header.php");?>
    <main>
       <h2>Total Price</h2>
-      <p>The total price is: $<?php echo number_format($totalPrice, 2); ?></p>
+      <p>The total product price is: <strong>$<?php echo number_format($totalPrice, 2); ?></strong></p>
+      <p>The tax applied is: <strong>13%</strong></p>
+      <p>The total product price after tax: <strong>$<?php echo number_format($totalPriceAfterTax, 2); ?></strong></p>
       <p><a href="index.php">Go Back</a></p>
    </main>
    <?php include("footer.php");?>
