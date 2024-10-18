@@ -53,7 +53,7 @@
    <link rel="stylesheet" href="/Rus_Capstone_Project/product_manager/css/main.css">
 </head>
 <body>
-   <?php include("header.php");?>
+   <?php include("view/header.php");?>
    <main>
       <h2>Total Price</h2>
       <p>The total product price is: <strong>$<?php echo number_format($totalPrice, 2); ?></strong></p>
@@ -61,6 +61,6 @@
       <p>The total product price after tax: <strong>$<?php echo number_format($totalPriceAfterTax, 2); ?></strong></p>
       <p><a href="index.php">Go Back</a></p>
    </main>
-   <?php include("footer.php");?>
+   <?php include("view/footer.php");?>
 </body>
 </html>

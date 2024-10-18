@@ -15,7 +15,7 @@
    <link rel="stylesheet" href="/Rus_Capstone_Project/product_manager/css/main.css">
 </head>
 <body>
-   <?php include("header.php");?>
+   <?php include("view/header.php");?>
    <main>
       <h2>Product 1</h2>
       <?php 
@@ -95,6 +95,6 @@
       </form>
 
    </main>
-   <?php include("footer.php");?>
+   <?php include("view/footer.php");?>
 </body>
 </html>

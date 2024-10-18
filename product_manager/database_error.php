@@ -1,6 +1,6 @@
 <?php
    session_start();
-   ("database.php")
+   ("view/database.php")
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,6 +21,6 @@
       <p><a href="index.php">View Products List</a></p>
 
    </main>
-   <?php include("footer.php");?>
+   <?php include("view/footer.php");?>
 </body>
 </html>
