@@ -4,7 +4,7 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 include('../database.php');
-include('../cart_functions.php');
+include('cart_functions.php');
 
 $cartItems = getCartContents($db);
 ?>
@@ -17,7 +17,7 @@ $cartItems = getCartContents($db);
    <link rel="stylesheet" href="/Rus_Capstone_Project/product_manager/css/main.css">
 </head>
 <body>
-   <?php include("../header.php");?>
+   <?php include("../view/header.php");?>
    <main>
       <h2>Shopping Cart</h2>
       <table>
@@ -41,6 +41,6 @@ $cartItems = getCartContents($db);
       <p><a href="../index.php">Continue Shopping</a></p>
       <p><a href="../checkout.php">Proceed to Checkout</a></p>
    </main>
-   <?php include("../footer.php");?>
+   <?php include("../view/footer.php");?>
 </body>
 </html>
