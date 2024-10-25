@@ -6,7 +6,7 @@ if (session_status() == PHP_SESSION_NONE) {
 function addToCart($db, $productID, $quantity) {
     $sessionID = session_id();
 
-    // check if a cart exists for this session
+    // get the cart ID for this session
     $query = 'SELECT cartID FROM cart WHERE sessionID = :sessionID';
     $statement = $db->prepare($query);
     $statement->bindValue(':sessionID', $sessionID);
@@ -27,13 +27,13 @@ function addToCart($db, $productID, $quantity) {
     }
 
     // get the product price
-    $query = 'SELECT price FROM products WHERE productID = :productID';
+    $query = 'SELECT basePrice FROM products WHERE productID = :productID';
     $statement = $db->prepare($query);
     $statement->bindValue(':productID', $productID);
     $statement->execute();
     $product = $statement->fetch();
     $statement->closeCursor();
-    $price = $product['price'];
+    $price = $product['basePrice'];
 
     // add the item to the cart
     $query = 'INSERT INTO cart_items (cartID, productID, quantity, price) VALUES (:cartID, :productID, :quantity, :price)';

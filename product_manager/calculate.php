@@ -4,6 +4,8 @@
    ini_set('display_startup_errors', 1);
    error_reporting(E_ALL);
    include('database.php');
+   include('cart/cart_functions.php');
+   
 
    // get selected options from the form
    $selection1 = $_POST['selection1'] ? $_POST['selection1'] : null;
@@ -13,6 +15,9 @@
 
    // function to get the price of an option
    function getOptionPrice($db, $optID) {
+      if ($optID === null) {
+         return 0;
+      }
       $query = 'SELECT price FROM options WHERE optID = :optID';
       $statement = $db->prepare($query);
       $statement->bindValue(':optID', $optID);
@@ -44,6 +49,15 @@
    $taxRate = 0.13;
    $totalPriceAfterTax = $totalPrice * (1 + $taxRate);
 
+   //handle form submission to add items to the cart
+   if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_to_cart'])) {
+      $productID = 1;
+      $quantity = 1;
+      addToCart($db, $productID, $quantity);
+      header('Location: ./cart/cart.php');
+      exit();
+   }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -60,6 +74,13 @@
       <p>The total product price is: <strong>$<?php echo number_format($totalPrice, 2); ?></strong></p>
       <p>The tax applied is: <strong>13%</strong></p>
       <p>The total product price after tax: <strong>$<?php echo number_format($totalPriceAfterTax, 2); ?></strong></p>
+      <form action="calculate.php" method="post">
+         <input type="hidden" name="selection1" value="<?php echo $selection1; ?>">
+         <input type="hidden" name="selection2" value="<?php echo $selection2; ?>">
+         <input type="hidden" name="selection3" value="<?php echo $selection3; ?>">
+         <input type="hidden" name="selection4" value="<?php echo $selection4; ?>">
+         <input type="submit" name="add_to_cart" value="Add to Cart" class="submit-button">
+      </form>
       <p><a href="index.php">Go Back</a></p>
    </main>
    <?php include("view/footer.php");?>
