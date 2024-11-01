@@ -6,7 +6,10 @@ error_reporting(E_ALL);
 include('../database.php');
 include('cart_functions.php');
 
+// retrieve the cart contents
 $cartItems = getCartContents($db);
+// retrieve the total price after tax from the session
+$totalPriceAfterTax = isset($_SESSION['totalPriceAfterTax']) ? $_SESSION['totalPriceAfterTax'] : 0;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -32,12 +35,13 @@ $cartItems = getCartContents($db);
             <tr>
                <td><?php echo $item['productName']; ?></td>
                <td><?php echo $item['quantity']; ?></td>
-               <td>$<?php echo number_format($item['price'], 2); ?></td>
-               <td>$<?php echo number_format($item['price'] * $item['quantity'], 2); ?></td>
+               <td>$<?php echo number_format($totalPriceAfterTax, 2); ?></td>
+               <td>$<?php echo number_format($totalPriceAfterTax * $item['quantity'], 2); ?></td>
                <td><a href="remove_from_cart.php?cartItemID=<?php echo $item['cartItemID']; ?>">Remove</a></td>
             </tr>
          <?php } ?>
       </table>
+      <p>Total Price After Tax: <strong>$<?php echo number_format($totalPriceAfterTax, 2); ?></strong></p>
       <p><a href="../index.php">Continue Shopping</a></p>
       <p><a href="../checkout.php">Proceed to Checkout</a></p>
    </main>

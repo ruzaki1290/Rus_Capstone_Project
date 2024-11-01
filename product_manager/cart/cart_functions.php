@@ -26,24 +26,44 @@ function addToCart($db, $productID, $quantity) {
         $statement->closeCursor();
     }
 
-    // get the product price
-    $query = 'SELECT basePrice FROM products WHERE productID = :productID';
-    $statement = $db->prepare($query);
-    $statement->bindValue(':productID', $productID);
-    $statement->execute();
-    $product = $statement->fetch();
-    $statement->closeCursor();
-    $price = $product['basePrice'];
+    if ($cartItem) {
+        // check if the product is already in the cart
+        $query = 'SELECT * FROM cart_items WHERE cartID = :cartID AND productID = :productID';
+        $statement = $db->prepare($query);
+        $statement->bindValue(':cartID', $cartID);
+        $statement->bindValue(':productID', $productID);
+        $statement->execute();
+        $cartItem = $statement->fetch();
+        $statement->closeCursor();
+    } else {
+        // update the quantity if the product is already in the cart
+        $query = 'UPDATE cart_items SET quantity = quantity + :quantity WHERE cartID = :cartID AND productID = :productID';
+        $statement = $db->prepare($query);
+        $statement->bindValue(':quantity', $quantity);
+        $statement->bindValue(':cartID', $cartID);
+        $statement->bindValue(':productID', $productID);
+        $statement->execute();
+        $statement->closeCursor();
 
-    // add the item to the cart
-    $query = 'INSERT INTO cart_items (cartID, productID, quantity, price) VALUES (:cartID, :productID, :quantity, :price)';
-    $statement = $db->prepare($query);
-    $statement->bindValue(':cartID', $cartID);
-    $statement->bindValue(':productID', $productID);
-    $statement->bindValue(':quantity', $quantity);
-    $statement->bindValue(':price', $price);
-    $statement->execute();
-    $statement->closeCursor();
+        // get the product price
+        $query = 'SELECT basePrice FROM products WHERE productID = :productID';
+        $statement = $db->prepare($query);
+        $statement->bindValue(':productID', $productID);
+        $statement->execute();
+        $product = $statement->fetch();
+        $statement->closeCursor();
+        $price = $product['basePrice'];
+
+        // add the item to the cart
+        $query = 'INSERT INTO cart_items (cartID, productID, quantity, price) VALUES (:cartID, :productID, :quantity, :price)';
+        $statement = $db->prepare($query);
+        $statement->bindValue(':cartID', $cartID);
+        $statement->bindValue(':productID', $productID);
+        $statement->bindValue(':quantity', $quantity);
+        $statement->bindValue(':price', $price);
+        $statement->execute();
+        $statement->closeCursor();
+    }
 }
 
 function getCartContents($db) {
