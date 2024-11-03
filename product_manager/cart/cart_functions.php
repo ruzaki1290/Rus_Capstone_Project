@@ -3,7 +3,7 @@ if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 
-function addToCart($db, $productID, $quantity) {
+function addToCart($db, $productID, $quantity, $totalPrice) {
     $sessionID = session_id();
 
     // get the cart ID for this session
@@ -52,7 +52,7 @@ function addToCart($db, $productID, $quantity) {
         $statement->execute();
         $product = $statement->fetch();
         $statement->closeCursor();
-        $price = $product['basePrice'];
+        $price = $totalPrice;
 
         // add the item to the cart
         $query = 'INSERT INTO cart_items (cartID, productID, quantity, price) VALUES (:cartID, :productID, :quantity, :price)';

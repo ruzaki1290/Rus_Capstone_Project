@@ -8,8 +8,10 @@ include('cart_functions.php');
 
 // retrieve the cart contents
 $cartItems = getCartContents($db);
-// retrieve the total price after tax from the session
-$totalPriceAfterTax = isset($_SESSION['totalPriceAfterTax']) ? $_SESSION['totalPriceAfterTax'] : 0;
+$totalPrice = 0;
+foreach ($cartItems as $item) {
+   $totalPrice += $item['price'];
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -26,22 +28,18 @@ $totalPriceAfterTax = isset($_SESSION['totalPriceAfterTax']) ? $_SESSION['totalP
       <table>
          <tr>
             <th>Product</th>
-            <th>Quantity</th>
             <th>Price</th>
-            <th>Total</th>
             <th>Action</th>
          </tr>
          <?php foreach ($cartItems as $item) { ?>
             <tr>
                <td><?php echo $item['productName']; ?></td>
-               <td><?php echo $item['quantity']; ?></td>
-               <td>$<?php echo number_format($totalPriceAfterTax, 2); ?></td>
-               <td>$<?php echo number_format($totalPriceAfterTax * $item['quantity'], 2); ?></td>
+               <td><?php echo $item['price']; ?></td>
                <td><a href="remove_from_cart.php?cartItemID=<?php echo $item['cartItemID']; ?>">Remove</a></td>
             </tr>
          <?php } ?>
       </table>
-      <p>Total Price After Tax: <strong>$<?php echo number_format($totalPriceAfterTax, 2); ?></strong></p>
+      <p>Total Price After Tax: <strong>$<?php echo $totalPrice; ?></strong></p>
       <p><a href="../index.php">Continue Shopping</a></p>
       <p><a href="../checkout.php">Proceed to Checkout</a></p>
    </main>

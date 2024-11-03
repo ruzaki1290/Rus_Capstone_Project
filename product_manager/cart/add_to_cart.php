@@ -7,16 +7,18 @@ error_reporting(E_ALL);
 include('../database.php');
 include('cart_functions.php');
 
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $productID = isset($_POST['productID']) ? $_POST['productID'] : null;
     $quantity = isset($_POST['quantity']) ? $_POST['quantity'] : null;
+    $totalPrice = isset($_POST['total_price']) ? $_POST['total_price'] : null;
 
     if ($productID && $quantity) {
         // Retrieve the total price after tax from the session
         $totalPriceAfterTax = isset($_SESSION['totalPriceAfterTax']) ? $_SESSION['totalPriceAfterTax'] : 0;
 
         // Add the item to the cart
-        addToCart($db, $productID, $quantity);
+        addToCart($db, $productID, $quantity, $totalPrice);
 
         // Redirect to the cart page
         header('Location: cart.php');

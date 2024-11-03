@@ -71,7 +71,7 @@
    <link rel="stylesheet" href="/Rus_Capstone_Project/product_manager/css/main.css">
 </head>
 <body>
-   <?php include("view/header.php");?>
+   <?php include("view/header.php"); ?>
    <main>
       <h2>Total Price</h2>
       <p>The total product price is: <strong>$<?php echo number_format($totalPrice, 2); ?></strong></p>
@@ -84,6 +84,7 @@
          <input type="hidden" name="selection4" value="<?php echo $selection4; ?>">
          <input type="hidden" name="productID" value="1"> <!-- assuming productID is 1 for this example -->
          <input type="hidden" name="quantity" value="1"> <!-- assuming quantity is 1 for this example -->
+         <input type="hidden" name="total_price" value="<?php echo number_format($totalPriceAfterTax, 2); ?>">
          <input type="submit" name="add_to_cart" value="Add to Cart" class="submit-button">
       </form>
       <p><a href="index.php">Go Back</a></p>

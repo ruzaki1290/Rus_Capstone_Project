@@ -73,3 +73,11 @@ form {
 .submit-button:hover {
    background: #45a049;
 }
+
+table td {
+   text-align: left;
+}
+
+table th {
+   text-align: left;
+}

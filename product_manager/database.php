@@ -6,7 +6,6 @@ if (session_status() == PHP_SESSION_NONE) {
 $dsn = 'mysql:host=localhost;dbname=capstone_project';
 $username = 'root';
 $password = '';
-
 try {
    $db = new PDO($dsn, $username, $password);
 } catch (PDOexception $e) {
