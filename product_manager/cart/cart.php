@@ -41,7 +41,7 @@ foreach ($cartItems as $item) {
       </table>
       <p>Total Price After Tax: <strong>$<?php echo $totalPrice; ?></strong></p>
       <p><a href="../index.php">Continue Shopping</a></p>
-      <p><a href="../checkout.php">Proceed to Checkout</a></p>
+      <p><a href="../checkout/checkout.php">Proceed to Checkout</a></p>
    </main>
    <?php include("../view/footer.php");?>
 </body>
