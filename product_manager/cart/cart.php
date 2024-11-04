@@ -40,8 +40,10 @@ foreach ($cartItems as $item) {
          <?php } ?>
       </table>
       <p>Total Price After Tax: <strong>$<?php echo $totalPrice; ?></strong></p>
+      <form action="../checkout/contact_information.php" method="post">
+         <input type="submit" value="Proceed to Checkout" class="submit-button">
+      </form>
       <p><a href="../index.php">Continue Shopping</a></p>
-      <p><a href="../checkout/checkout.php">Proceed to Checkout</a></p>
    </main>
    <?php include("../view/footer.php");?>
 </body>
