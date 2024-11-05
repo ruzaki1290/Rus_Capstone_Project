@@ -12,6 +12,10 @@ $totalPrice = 0;
 foreach ($cartItems as $item) {
    $totalPrice += $item['price'];
 }
+
+// store cart info in the session
+$_SESSION['cartItems'] = $cartItems;
+$_SESSION['totalPrice'] = $totalPrice;
 ?>
 <!DOCTYPE html>
 <html lang="en">

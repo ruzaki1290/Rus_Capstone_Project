@@ -16,7 +16,7 @@
    <?php include("../view/header.php");?>
    <main>
       <h2>Contact Information</h2>
-      <form action="process_order.php" method="post">
+      <form action="save_customer_info.php" method="post">
           <label for="name">Name:</label>
           <input type="text" id="name" name="name" required><br>
 
@@ -32,7 +32,9 @@
           <label for="phone">Phone:</label>
           <input type="tel" id="phone" name="phone" required><br>
 
-          <input type="submit" value="Confirm Info" class="submit-button">
+          <form action="../checkout/process_order.php" method="post">
+            <input type="submit" value="Confirm Info" class="submit-button">
+         </form>
       </form>
       <p><a href="../cart/cart.php">Go Back</a></p>
    </main>
