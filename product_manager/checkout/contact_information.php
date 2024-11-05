@@ -32,7 +32,7 @@
           <label for="phone">Phone:</label>
           <input type="tel" id="phone" name="phone" required><br>
 
-          <input type="submit" value="Submit Order" class="submit-button">
+          <input type="submit" value="Confirm Info" class="submit-button">
       </form>
       <p><a href="../cart/cart.php">Go Back</a></p>
    </main>
