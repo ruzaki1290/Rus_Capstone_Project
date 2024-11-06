@@ -81,3 +81,21 @@ table td {
 table th {
    text-align: left;
 }
+
+.hero-image {
+   width: 100%;
+   max-width: 1200px;
+   margin: 0 auto;
+   text-align: center;
+}
+
+.hero-image img {
+   width: 100%;
+   height: auto;
+}
+
+.intro-text {
+   text-align: center;
+   margin-top: 20px;
+   font-size: 1.2em;
+}
