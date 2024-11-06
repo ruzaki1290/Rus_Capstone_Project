@@ -1,6 +1,6 @@
 <?php
    session_start();
-   include('../database.php');
+   include('../database/database.php');
    include('./cart_functions.php');
 
    if (isset($_GET['cartItemID'])) {

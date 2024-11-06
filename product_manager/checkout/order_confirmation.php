@@ -17,7 +17,7 @@
    <?php include("../view/header.php");?>
    <main>
       <h2>Order Confirmation</h2>
-      <h3>We have recieved your order 📦✅ Thank you for choosing our store! 🤠</h3>
+      <h3>We’ve received your order! 📦✅ Thank you for choosing our store. We appreciate your business and hope you enjoy your purchase! 😊</h3>
       <p><a href="process_order.php">Go Back</a></p>
       <p><a href="../product_page.php">Continue Shopping</a></p>
    </main>

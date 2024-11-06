@@ -19,7 +19,7 @@
          <img src="./images/hero_image_1.jpg" alt="Hero Image">
       </div>
       <div class="intro-text">
-      <p>Welcome to our store! 👋 We offer a wide range of suits 🕴️ to meet all your needs. Choose a suit for your occasion and customize it the way you like. It's that simple! 🙂.</p>
+      <p>Welcome to our store! 👋 We offer a wide range of suits 👔 to meet all your needs. Whether it’s for a wedding, business meeting, or a special event, we’ve got you covered. Choose a suit for your occasion and customize it just the way you like. It’s that simple! 😃✨</p>
       </div>
    </main>
    <?php include("view/footer.php");?>
