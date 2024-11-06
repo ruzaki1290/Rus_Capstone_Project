@@ -3,7 +3,7 @@
    ini_set('display_errors', 1);
    ini_set('display_startup_errors', 1);
    error_reporting(E_ALL);
-   include('database.php');
+   include('database/database.php');
    include('cart/cart_functions.php');
    
 
@@ -87,7 +87,7 @@
          <input type="hidden" name="total_price" value="<?php echo number_format($totalPriceAfterTax, 2); ?>">
          <input type="submit" name="add_to_cart" value="Add to Cart" class="submit-button">
       </form>
-      <p><a href="index.php">Go Back</a></p>
+      <p><a href="product_page.php">Go Back</a></p>
    </main>
    <?php include("view/footer.php");?>
 </body>

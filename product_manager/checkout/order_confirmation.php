@@ -3,7 +3,7 @@
    ini_set('display_errors', 1);
    ini_set('display_startup_errors', 1);
    error_reporting(E_ALL);
-   include('../database.php');
+   include('../database/database.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -19,7 +19,7 @@
       <h2>Order Confirmation</h2>
       <h3>We have recieved your order 📦✅ Thank you for choosing our store! 🤠</h3>
       <p><a href="process_order.php">Go Back</a></p>
-      <p><a href="../index.php">Continue Shopping</a></p>
+      <p><a href="../product_page.php">Continue Shopping</a></p>
    </main>
    <?php include("../view/footer.php");?>
 </body>

@@ -3,7 +3,7 @@ session_start();
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
-include('../database.php');
+include('../database/database.php');
 include('cart_functions.php');
 
 // retrieve the cart contents
@@ -47,7 +47,7 @@ $_SESSION['totalPrice'] = $totalPrice;
       <form action="../checkout/contact_information.php" method="post">
          <input type="submit" value="Proceed to Checkout" class="submit-button">
       </form>
-      <p><a href="../index.php">Continue Shopping</a></p>
+      <p><a href="../product_page.php">Continue Shopping</a></p>
    </main>
    <?php include("../view/footer.php");?>
 </body>

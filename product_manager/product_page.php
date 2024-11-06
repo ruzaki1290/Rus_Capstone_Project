@@ -1,5 +1,5 @@
 <?php
-   require("database.php");
+   require("database/database.php");
    $querySelections = 'SELECT * FROM selections';
    $statement1 = $db->prepare($querySelections);
    $statement1->execute();
